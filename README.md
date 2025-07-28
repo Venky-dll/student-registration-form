@@ -29,5 +29,5 @@ This project is a simple **web-based student registration form** that automates 
 ### 1. Clone this repository
 
 ```bash
-git clone https://github.com/<your-username>/student-registration-form.git
+git clone https://github.com/Venky-dll/student-registration-form.git
 cd student-registration-form
