@@ -6,8 +6,8 @@ app = Flask(__name__)
 # Database connection
 conn = pyodbc.connect(
     r'DRIVER={SQL Server};'
-    r'SERVER=Venkat\SQLEXPRESS01;'
-    r'DATABASE=StudentsDB;'
+    r'SERVER=Your_Server_Here;'
+    r'DATABASE=Your_Database_Here;'
     r'Trusted_Connection=yes;'
 )
 
@@ -38,7 +38,7 @@ def register():
 
         # Step 3: Insert new student with that ID
         cursor.execute(
-            "INSERT INTO Students (ID, Name, Email, Age, Gender, Course) VALUES (?, ?, ?, ?, ?, ?)",
+            "INSERT INTO Students (ID, Name, Email, Age, Gender, Course) VALUES (?, ?, ?, ?, ?, ?)", #The term Students here is the name of the table created XD
             (new_id, name, email, age, gender, course)
         )
         conn.commit()
