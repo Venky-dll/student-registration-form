@@ -4,13 +4,16 @@ GO
 use StudentsDB;
 GO
 
-CREATE TABLE Students (
-    ID INT PRIMARY KEY,
-    Name NVARCHAR(100),
-    Email NVARCHAR(100),
-    Age INT,
-    Gender NVARCHAR(10),
-    Course NVARCHAR(100)
+create table Students (
+    ID int primary key,
+    Name nvarchar(100),
+    Email nvarchar(100),
+    Age int,
+    Gender nvarchar(10),
+    Course nvarchar(100)
 );
 
 select * from Students;
+--update
+alter table students add constraint Email unique(email);
+-- i forgot to declare that emails are unique
