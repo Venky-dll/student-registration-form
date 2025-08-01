@@ -24,11 +24,9 @@ def register():
 
         cursor = conn.cursor()
 
-        # Step 1: Get all existing IDs
         cursor.execute("SELECT ID FROM Students ORDER BY ID")
         existing_ids = [row[0] for row in cursor.fetchall()]
 
-        # Step 2: Find smallest missing ID
         new_id = 1
         for id in existing_ids:
             if id == new_id:
@@ -36,7 +34,6 @@ def register():
             else:
                 break
 
-        # Step 3: Insert new student with that ID
         cursor.execute(
             "INSERT INTO Students (ID, Name, Email, Age, Gender, Course) VALUES (?, ?, ?, ?, ?, ?)", #The term Students here is the name of the table created XD
             (new_id, name, email, age, gender, course)
