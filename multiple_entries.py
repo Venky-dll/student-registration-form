@@ -33,12 +33,12 @@ for student in students:
 
         driver.find_element(By.XPATH, "//input[@type='submit']").click()
 
-        print(f"✅ Submitted form for {student['name']}")
+        print(f"Submitted form for {student['name']}")
 
     except Exception as e:
-        print(f"❌ Failed to submit form for {student['name']}: {e}")
+        print(f"Failed to submit form for {student['name']}: {e}")
 
-    time.sleep(2)  # Wait before moving to next student
+    time.sleep(2)  
 
 driver.quit()
-print("🎉 All student forms processed.")
+print("All student forms processed.")
