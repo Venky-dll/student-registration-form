@@ -1,10 +1,10 @@
-# 📝 Student Registration Form Automation
+# Student Registration Form Automation
 
 This project is a simple **web-based student registration form** that automates data entry using **Selenium WebDriver** and stores the submitted entries into a **SQL Server** database using **Flask** and **pyodbc**.
 
 ---
 
-## 📌 Features
+## Features
 
 - HTML form for student registration.
 - Python Flask backend to process submissions.
@@ -15,7 +15,7 @@ This project is a simple **web-based student registration form** that automates 
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 - **Frontend:** HTML, GitHub Pages
 - **Backend:** Python (Flask)
@@ -24,7 +24,7 @@ This project is a simple **web-based student registration form** that automates 
 
 ---
 
-## 🚀 How to Run the Project
+## How to Run the Project
 
 ###  &nbsp;&nbsp;&nbsp;&nbsp;1. Clone this repository
 
@@ -54,7 +54,7 @@ python app.py
 http://127.0.0.1:5000
 ```
 
-## 📂 File Structure
+## File Structure
 
 student-registration-form/<br>
 │<br>
