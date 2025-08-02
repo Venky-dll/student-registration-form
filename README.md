@@ -54,7 +54,7 @@ python app.py
 http://127.0.0.1:5000
 ```
 
-## File Structure
+##  File Structure
 
 student-registration-form/<br>
 │<br>
