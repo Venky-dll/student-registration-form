@@ -1,0 +1,19 @@
+{% if results %}
+  <h4>Results:</h4>
+  <table border="1">
+    <tr>
+      {% for col in columns %}
+        <th>{{ col }}</th>
+      {% endfor %}
+    </tr>
+    {% for row in results %}
+      <tr>
+        {% for cell in row %}
+          <td>{{ cell }}</td>
+        {% endfor %}
+      </tr>
+    {% endfor %}
+  </table>
+{% else %}
+  <p>No results found.</p>
+{% endif %}
