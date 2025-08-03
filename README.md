@@ -1,5 +1,5 @@
 # Student Registration + Natural Language SQL Querying
-- A full-stack web app that combines:
+A full-stack web app that combines:
 
 - Student registration form with SQL Server backend
 
