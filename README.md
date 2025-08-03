@@ -18,8 +18,9 @@ A full-stack web app that combines:
 
 - Ask questions in plain English like:
 
-“How many students are in Signals and Systems?”
-“Who are the females enrolled in Data Structures?”
+  - “How many students are in Signals and Systems?”
+
+  - “Who are the females enrolled in Data Structures?”
 
 - Automatically fixes common case mismatches
 
