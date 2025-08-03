@@ -66,6 +66,8 @@ def nl_to_sql():
         - When asked for the oldest or youngest student(s), use subqueries like:
           SELECT * FROM Students WHERE Age = (SELECT MAX(Age) FROM Students)
           SELECT * FROM Students WHERE Age = (SELECT MIN(Age) FROM Students))
+        - For questions like "how many", use COUNT(*) with the subquery.
+        - Never use LIMIT, FIRST, or FETCH. Use subqueries for MIN/MAX.
         - For limiting results (e.g., "oldest", "top student", "first", etc.), use **TOP 1** instead of FETCH.
         - Use COLLATE SQL_Latin1_General_CP1_CI_AS for case-insensitive comparison in WHERE clauses.
         - For questions like \"how many\", use COUNT(*).
@@ -100,6 +102,7 @@ def query_page():
 
 if __name__ == '__main__':
     app.run(debug=True)
+
 
 
 
