@@ -51,13 +51,13 @@ pip install flask selenium pyodbc google-generativeai
 ```
 3. Set your SQL Server configuration in app.py
 Edit these lines in the script:<br>
-<br>
-                    conn = pyodbc.connect(<br>
-                        r'DRIVER={SQL Server};'<br>
-                        r'SERVER=YourServerName;'<br>
-                        r'DATABASE=YourDatabaseName;'<br>
-                        r'Trusted_Connection=yes;'<br>
-                    )<br>
+<sub>conn = pyodbc.connect(<br>
+   r'DRIVER={SQL Server};'<br>
+   r'SERVER=YourServerName;'<br>
+   r'DATABASE=YourDatabaseName;'<br>
+   r'Trusted_Connection=yes;'<br>
+   )<br></sub>
+
 
 4. Replace Gemini API Key
 In app.py, set your API key from Google AI Studio:
@@ -98,6 +98,6 @@ student-registration-form/<br>
 
 ## Works even with:
 
-Miscapitalized queries
+ - Miscapitalized queries
 
-Slightly mistyped input (autocorrect support in progress)
+ - Slightly mistyped input (autocorrect support in progress)
