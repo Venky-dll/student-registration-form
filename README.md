@@ -1,68 +1,102 @@
-# Student Registration Form Automation
+# Student Registration + Natural Language SQL Querying
+- A full-stack web app that combines:
 
-This project is a simple **web-based student registration form** that automates data entry using **Selenium WebDriver** and stores the submitted entries into a **SQL Server** database using **Flask** and **pyodbc**.
+- Student registration form with SQL Server backend
 
----
+- AI-powered natural language queries via Google Gemini
+
+- Admin interface to convert Natural Language to SQL and view results
+
+- Selenium WebDriver automation to auto-fill forms
+
+- Dynamic ID assignment, case-insensitive searches, and smart query detection
 
 ## Features
+- Register student info via a user-friendly web form
 
-- HTML form for student registration.
-- Python Flask backend to process submissions.
-- Submissions stored in Microsoft SQL Server.
-- Selenium-based automation to auto-fill and submit the form multiple times.
-- Dynamic ID assignment that reuses deleted IDs.
-- Thank you page after successful submission.
+- Store entries in Microsoft SQL Server
 
----
+- Ask questions in plain English like:
+
+“How many students are in Signals and Systems?”
+“Who are the females enrolled in Data Structures?”
+
+- Automatically fixes common case mismatches
+
+- Automate form submissions with Selenium
 
 ## Tech Stack
+| Layer     | Tools/Tech                          |
+| --------- | ----------------------------------- |
+| Frontend  | HTML, GitHub Pages                  |
+| Backend   | Python (Flask)                      |
+| AI Engine | Google Gemini 1.5 Flash via API     |
+| Database  | Microsoft SQL Server (via `pyodbc`) |
+| Testing   | Selenium WebDriver (Chrome)         |
 
-- **Frontend:** HTML, GitHub Pages
-- **Backend:** Python (Flask)
-- **Database:** Microsoft SQL Server (via SSMS + pyodbc)
-- **Automation:** Selenium WebDriver (Chrome)
-
----
 
 ## How to Run the Project
-
-###  &nbsp;&nbsp;&nbsp;&nbsp;1. Clone this repository
-
+1. Clone the repository
 ```bash
 
 git clone https://github.com/Venky-dll/student-registration-form.git
-cd student-registration-form 
+cd student-registration-form
 ```
-###  &nbsp;&nbsp;&nbsp;&nbsp;2. Install dependencies
-```bash
 
-pip install flask selenium pyodbc
+2. Install dependencies
+```bash
+pip install flask selenium pyodbc google-generativeai
+
 ```
-###  &nbsp;&nbsp;&nbsp;&nbsp;3. Set your SQL Server connection in app.py
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Replace the SERVER, DATABASE, and TABLE values in the script: <br>
-                  <sub> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;conn = pyodbc.connect( <br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;r'DRIVER={SQL Server};' <br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;r'SERVER=YourServerName;' <br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;r'DATABASE=YourDatabaseName;'<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;r'Trusted_Connection=yes;') <br></sub>
-###  &nbsp;&nbsp;&nbsp;&nbsp;4. Run the Flask app
+3. Set your SQL Server configuration in app.py
+Edit these lines in the script:
+
+conn = pyodbc.connect(
+    r'DRIVER={SQL Server};'
+    r'SERVER=YourServerName;'
+    r'DATABASE=YourDatabaseName;'
+    r'Trusted_Connection=yes;'
+)
+
+4. Replace Gemini API Key
+In app.py, set your API key from Google AI Studio:
+```bash
+genai.configure(api_key="your-api-key-here")
+
+```
+
+5. Run the Flask app
 ```bash
 python app.py
 ```
- &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;App will run locally at:
-```bash
-http://127.0.0.1:5000
+Then open:
+```bash 
+http://127.0.0.1:5000 — for student registration
+http://127.0.0.1:5000/query — for admin natural language querying
 ```
-
-##  File Structure
-
+## File Structure
 student-registration-form/<br>
 │<br>
 ├── templates/<br>
-│   ├── form.html<br>
-│   └── success.html<br>
+│   ├── form.html              # Student form UI<br>
+│   ├── success.html           # Registration confirmation<br>
+│   ├── nl_query.html          # Admin Natural Language to SQL interface<br>
+│   └── results.html           # SQL results display<br>
 │<br>
-├── app.py&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# Flask backend<br>
-└── README.md&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# This file<br>
+├── app.py                     # Flask backend + Gemini integration<br>
+├── multiple_entries.py        # Selenium script for automation (optional)<br>
+└── README.md                  # Project documentation (this file)<br>
+## Example Queries (Admin Panel)
+--“Show all students”
 
+--“List names of males in Data Structures”
 
+--“How many are in Signals & Systems?”
+
+--“Who are the students aged over 21?”
+
+## Works even with:
+
+Miscapitalized queries
+
+Slightly mistyped input (autocorrect support in progress)
